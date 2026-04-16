@@ -6509,12 +6509,10 @@ func (m *UserPresence) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x1a
 	}
-	if len(m.SessionId) > 0 {
-		i -= len(m.SessionId)
-		copy(dAtA[i:], m.SessionId)
-		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.SessionId)))
+	if m.SessionId != 0 {
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.SessionId))
 		i--
-		dAtA[i] = 0x12
+		dAtA[i] = 0x10
 	}
 	if m.UserId != 0 {
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.UserId))
@@ -12239,9 +12237,8 @@ func (m *UserPresence) SizeVT() (n int) {
 	if m.UserId != 0 {
 		n += 1 + protohelpers.SizeOfVarint(uint64(m.UserId))
 	}
-	l = len(m.SessionId)
-	if l > 0 {
-		n += 1 + l + protohelpers.SizeOfVarint(uint64(l))
+	if m.SessionId != 0 {
+		n += 1 + protohelpers.SizeOfVarint(uint64(m.SessionId))
 	}
 	l = len(m.Username)
 	if l > 0 {
@@ -28906,10 +28903,10 @@ func (m *UserPresence) UnmarshalVT(dAtA []byte) error {
 				}
 			}
 		case 2:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field SessionId", wireType)
 			}
-			var stringLen uint64
+			m.SessionId = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return protohelpers.ErrIntOverflow
@@ -28919,24 +28916,11 @@ func (m *UserPresence) UnmarshalVT(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.SessionId |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return protohelpers.ErrInvalidLength
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return protohelpers.ErrInvalidLength
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.SessionId = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Username", wireType)

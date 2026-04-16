@@ -1040,7 +1040,7 @@ message UserPresence {
   // The user this presence belongs to.
   int64 user_id = 1;
   // A unique session ID identifying the particular connection, because the user may have many.
-  string session_id = 2;
+  int32 session_id = 2;
   // The username for display purposes.
   string username = 3;
   // A user-set status message for this stream, if applicable.
