@@ -2148,10 +2148,17 @@ func (m *ApiRequestEvent) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		copy(dAtA[i:], m.Body)
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.Body)))
 		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.ApiName) > 0 {
+		i -= len(m.ApiName)
+		copy(dAtA[i:], m.ApiName)
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.ApiName)))
+		i--
 		dAtA[i] = 0x12
 	}
-	if m.Api != 0 {
-		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.Api))
+	if m.ApiIndex != 0 {
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.ApiIndex))
 		i--
 		dAtA[i] = 0x8
 	}
@@ -10452,8 +10459,12 @@ func (m *ApiRequestEvent) SizeVT() (n int) {
 	}
 	var l int
 	_ = l
-	if m.Api != 0 {
-		n += 1 + protohelpers.SizeOfVarint(uint64(m.Api))
+	if m.ApiIndex != 0 {
+		n += 1 + protohelpers.SizeOfVarint(uint64(m.ApiIndex))
+	}
+	l = len(m.ApiName)
+	if l > 0 {
+		n += 1 + l + protohelpers.SizeOfVarint(uint64(l))
 	}
 	l = len(m.Body)
 	if l > 0 {
@@ -17507,9 +17518,9 @@ func (m *ApiRequestEvent) UnmarshalVT(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Api", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field ApiIndex", wireType)
 			}
-			m.Api = 0
+			m.ApiIndex = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return protohelpers.ErrIntOverflow
@@ -17519,12 +17530,44 @@ func (m *ApiRequestEvent) UnmarshalVT(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Api |= int32(b&0x7F) << shift
+				m.ApiIndex |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
 		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ApiName", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return protohelpers.ErrInvalidLength
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return protohelpers.ErrInvalidLength
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ApiName = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Body", wireType)
 			}
