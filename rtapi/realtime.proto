@@ -222,7 +222,7 @@ message Envelope {
     // Ban Channel User Event
     ListChannelUsersBannedEvent list_channel_users_banned_event = 95;
     // Refresh session event
-    api.Session refresh_session = 96;
+    api.Session refresh_session_event = 96;
   }
 }
 
