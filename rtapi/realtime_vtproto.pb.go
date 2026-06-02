@@ -2219,20 +2219,15 @@ func (m *TopicInMessageEvent) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 	if m.Lsnt != 0 {
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.Lsnt))
 		i--
-		dAtA[i] = 0x20
+		dAtA[i] = 0x18
 	}
 	if m.Rpl != 0 {
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.Rpl))
 		i--
-		dAtA[i] = 0x18
+		dAtA[i] = 0x10
 	}
 	if m.MessageId != 0 {
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.MessageId))
-		i--
-		dAtA[i] = 0x10
-	}
-	if m.TopicId != 0 {
-		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.TopicId))
 		i--
 		dAtA[i] = 0x8
 	}
@@ -10829,9 +10824,6 @@ func (m *TopicInMessageEvent) SizeVT() (n int) {
 	}
 	var l int
 	_ = l
-	if m.TopicId != 0 {
-		n += 1 + protohelpers.SizeOfVarint(uint64(m.TopicId))
-	}
 	if m.MessageId != 0 {
 		n += 1 + protohelpers.SizeOfVarint(uint64(m.MessageId))
 	}
@@ -18124,25 +18116,6 @@ func (m *TopicInMessageEvent) UnmarshalVT(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field TopicId", wireType)
-			}
-			m.TopicId = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return protohelpers.ErrIntOverflow
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.TopicId |= int64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 2:
-			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field MessageId", wireType)
 			}
 			m.MessageId = 0
@@ -18160,7 +18133,7 @@ func (m *TopicInMessageEvent) UnmarshalVT(dAtA []byte) error {
 					break
 				}
 			}
-		case 3:
+		case 2:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Rpl", wireType)
 			}
@@ -18179,7 +18152,7 @@ func (m *TopicInMessageEvent) UnmarshalVT(dAtA []byte) error {
 					break
 				}
 			}
-		case 4:
+		case 3:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Lsnt", wireType)
 			}
