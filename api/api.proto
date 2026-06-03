@@ -1973,6 +1973,7 @@ message MultipartUploadAttachmentPart {
 message MultipartUploadAttachmentFinishRequest {
   string upload_id = 1;
   repeated MultipartUploadAttachmentPart parts = 2;
+  string filename = 3;
 }
 
 // Operator that can be used to override the one set in the leaderboard.

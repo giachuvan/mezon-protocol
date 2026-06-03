@@ -12329,6 +12329,7 @@ type MultipartUploadAttachmentFinishRequest struct {
 	state         protoimpl.MessageState           `protogen:"open.v1"`
 	UploadId      string                           `protobuf:"bytes,1,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
 	Parts         []*MultipartUploadAttachmentPart `protobuf:"bytes,2,rep,name=parts,proto3" json:"parts,omitempty"`
+	Filename      string                           `protobuf:"bytes,3,opt,name=filename,proto3" json:"filename,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -12375,6 +12376,13 @@ func (x *MultipartUploadAttachmentFinishRequest) GetParts() []*MultipartUploadAt
 		return x.Parts
 	}
 	return nil
+}
+
+func (x *MultipartUploadAttachmentFinishRequest) GetFilename() string {
+	if x != nil {
+		return x.Filename
+	}
+	return ""
 }
 
 type SearchMessageRequest struct {
@@ -27685,10 +27693,11 @@ const file_api_proto_rawDesc = "" +
 	"\x1dMultipartUploadAttachmentPart\x12\x1f\n" +
 	"\vpart_number\x18\x01 \x01(\x05R\n" +
 	"partNumber\x12\x13\n" +
-	"\x05e_tag\x18\x02 \x01(\tR\x04eTag\"\x85\x01\n" +
+	"\x05e_tag\x18\x02 \x01(\tR\x04eTag\"\xa1\x01\n" +
 	"&MultipartUploadAttachmentFinishRequest\x12\x1b\n" +
 	"\tupload_id\x18\x01 \x01(\tR\buploadId\x12>\n" +
-	"\x05parts\x18\x02 \x03(\v2(.mezon.api.MultipartUploadAttachmentPartR\x05parts\"\x9c\x01\n" +
+	"\x05parts\x18\x02 \x03(\v2(.mezon.api.MultipartUploadAttachmentPartR\x05parts\x12\x1a\n" +
+	"\bfilename\x18\x03 \x01(\tR\bfilename\"\x9c\x01\n" +
 	"\x14SearchMessageRequest\x120\n" +
 	"\afilters\x18\x01 \x03(\v2\x16.mezon.api.FilterParamR\afilters\x12\x12\n" +
 	"\x04from\x18\x03 \x01(\x05R\x04from\x12\x12\n" +
