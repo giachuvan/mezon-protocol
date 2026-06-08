@@ -1925,6 +1925,14 @@ message PermissionUpdate {
   int32 type = 3;
 }
 
+message UploadBatchAttachmentRequest {
+  repeated UploadAttachmentRequest upload_files = 1;
+}
+
+message UploadAttachmentBatch {
+  repeated UploadAttachment uploaded_files = 1;
+}
+
 message UploadAttachmentRequest {
   // The name of file that need to upload
   string filename = 1;
