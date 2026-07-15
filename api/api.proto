@@ -3225,6 +3225,7 @@ message SdTopicList {
 message ListSdTopicRequest {
   int64 clan_id = 1;
   int32 limit = 2;
+  int32 page = 3;
 }
 
 message SdTopicDetailRequest {

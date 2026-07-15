@@ -18183,6 +18183,11 @@ func (m *ListSdTopicRequest) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
+	if m.Page != 0 {
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.Page))
+		i--
+		dAtA[i] = 0x18
+	}
 	if m.Limit != 0 {
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.Limit))
 		i--
@@ -30243,6 +30248,9 @@ func (m *ListSdTopicRequest) SizeVT() (n int) {
 	}
 	if m.Limit != 0 {
 		n += 1 + protohelpers.SizeOfVarint(uint64(m.Limit))
+	}
+	if m.Page != 0 {
+		n += 1 + protohelpers.SizeOfVarint(uint64(m.Page))
 	}
 	n += len(m.unknownFields)
 	return n
@@ -79560,6 +79568,25 @@ func (m *ListSdTopicRequest) UnmarshalVT(dAtA []byte) error {
 				b := dAtA[iNdEx]
 				iNdEx++
 				m.Limit |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Page", wireType)
+			}
+			m.Page = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Page |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
