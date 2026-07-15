@@ -3364,9 +3364,9 @@ func (m *ClanJoin) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
-	if m.IsDm {
+	if m.IsLastField {
 		i--
-		if m.IsDm {
+		if m.IsLastField {
 			dAtA[i] = 1
 		} else {
 			dAtA[i] = 0
@@ -11403,7 +11403,7 @@ func (m *ClanJoin) SizeVT() (n int) {
 	if m.ClanId != 0 {
 		n += 1 + protohelpers.SizeOfVarint(uint64(m.ClanId))
 	}
-	if m.IsDm {
+	if m.IsLastField {
 		n += 2
 	}
 	n += len(m.unknownFields)
@@ -21344,7 +21344,7 @@ func (m *ClanJoin) UnmarshalVT(dAtA []byte) error {
 			}
 		case 2:
 			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field IsDm", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field IsLastField", wireType)
 			}
 			var v int
 			for shift := uint(0); ; shift += 7 {
@@ -21361,7 +21361,7 @@ func (m *ClanJoin) UnmarshalVT(dAtA []byte) error {
 					break
 				}
 			}
-			m.IsDm = bool(v != 0)
+			m.IsLastField = bool(v != 0)
 		default:
 			iNdEx = preIndex
 			skippy, err := protohelpers.Skip(dAtA[iNdEx:])
