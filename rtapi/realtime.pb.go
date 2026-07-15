@@ -3139,6 +3139,7 @@ type ClanJoin struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The id of channel or group
 	ClanId        int64 `protobuf:"varint,1,opt,name=clan_id,json=clanId,proto3" json:"clan_id,omitempty"`
+	IsDm          bool  `protobuf:"varint,2,opt,name=is_dm,json=isDm,proto3" json:"is_dm,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3178,6 +3179,13 @@ func (x *ClanJoin) GetClanId() int64 {
 		return x.ClanId
 	}
 	return 0
+}
+
+func (x *ClanJoin) GetIsDm() bool {
+	if x != nil {
+		return x.IsDm
+	}
+	return false
 }
 
 // Join operation for a realtime chat channel.
@@ -10338,9 +10346,10 @@ const file_realtime_proto_rawDesc = "" +
 	"\x04self\x18\x03 \x01(\v2\x1c.mezon.realtime.UserPresenceR\x04self\x12!\n" +
 	"\fchanel_label\x18\x04 \x01(\tR\vchanelLabel\x12\x1b\n" +
 	"\tclan_logo\x18\x05 \x01(\tR\bclanLogo\x12#\n" +
-	"\rcategory_name\x18\x06 \x01(\tR\fcategoryName\"#\n" +
+	"\rcategory_name\x18\x06 \x01(\tR\fcategoryName\"8\n" +
 	"\bClanJoin\x12\x17\n" +
-	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\"\x85\x01\n" +
+	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\x12\x13\n" +
+	"\x05is_dm\x18\x02 \x01(\bR\x04isDm\"\x85\x01\n" +
 	"\vChannelJoin\x12\x17\n" +
 	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\x12\x1d\n" +
 	"\n" +

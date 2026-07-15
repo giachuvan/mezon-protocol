@@ -416,6 +416,7 @@ message Channel {
 message ClanJoin {
   // The id of channel or group
   int64 clan_id = 1;
+  bool is_dm = 2;
 }
 
 // Join operation for a realtime chat channel.
