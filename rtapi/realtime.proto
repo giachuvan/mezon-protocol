@@ -227,7 +227,17 @@ message Envelope {
     TopicInMessageEvent topic_in_message_event = 98;
     // share screen event
     ScreenShareEvent screen_share_event = 99;
+    // VoiceInteractiveEvent
+    VoiceInteractiveEvent voice_interactive_event = 100;
   }
+}
+
+message VoiceInteractiveEvent {
+  int64 clan_id = 1;
+  int64 voice_channel_id = 2;
+  int64 user_id = 3;
+  int32 event_type = 4;
+  string params = 5;
 }
 
 message ScreenShareEvent {
