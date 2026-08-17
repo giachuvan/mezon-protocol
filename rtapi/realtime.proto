@@ -235,9 +235,10 @@ message Envelope {
 message VoiceInteractiveEvent {
   int64 clan_id = 1;
   int64 voice_channel_id = 2;
-  int64 user_id = 3;
-  int32 event_type = 4;
-  string params = 5;
+  int64 sender_id = 3;
+  int64 receiver_id = 4;
+  int32 event_type = 5;
+  string params = 6;
 }
 
 message ScreenShareEvent {

@@ -1858,9 +1858,10 @@ type VoiceInteractiveEvent struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	ClanId         int64                  `protobuf:"varint,1,opt,name=clan_id,json=clanId,proto3" json:"clan_id,omitempty"`
 	VoiceChannelId int64                  `protobuf:"varint,2,opt,name=voice_channel_id,json=voiceChannelId,proto3" json:"voice_channel_id,omitempty"`
-	UserId         int64                  `protobuf:"varint,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	EventType      int32                  `protobuf:"varint,4,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
-	Params         string                 `protobuf:"bytes,5,opt,name=params,proto3" json:"params,omitempty"`
+	SenderId       int64                  `protobuf:"varint,3,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
+	ReceiverId     int64                  `protobuf:"varint,4,opt,name=receiver_id,json=receiverId,proto3" json:"receiver_id,omitempty"`
+	EventType      int32                  `protobuf:"varint,5,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
+	Params         string                 `protobuf:"bytes,6,opt,name=params,proto3" json:"params,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -1909,9 +1910,16 @@ func (x *VoiceInteractiveEvent) GetVoiceChannelId() int64 {
 	return 0
 }
 
-func (x *VoiceInteractiveEvent) GetUserId() int64 {
+func (x *VoiceInteractiveEvent) GetSenderId() int64 {
 	if x != nil {
-		return x.UserId
+		return x.SenderId
+	}
+	return 0
+}
+
+func (x *VoiceInteractiveEvent) GetReceiverId() int64 {
+	if x != nil {
+		return x.ReceiverId
 	}
 	return 0
 }
@@ -10329,14 +10337,16 @@ const file_realtime_proto_rawDesc = "" +
 	"\x16topic_in_message_event\x18b \x01(\v2#.mezon.realtime.TopicInMessageEventH\x00R\x13topicInMessageEvent\x12P\n" +
 	"\x12screen_share_event\x18c \x01(\v2 .mezon.realtime.ScreenShareEventH\x00R\x10screenShareEvent\x12_\n" +
 	"\x17voice_interactive_event\x18d \x01(\v2%.mezon.realtime.VoiceInteractiveEventH\x00R\x15voiceInteractiveEventB\t\n" +
-	"\amessage\"\xaa\x01\n" +
+	"\amessage\"\xcf\x01\n" +
 	"\x15VoiceInteractiveEvent\x12\x17\n" +
 	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\x12(\n" +
-	"\x10voice_channel_id\x18\x02 \x01(\x03R\x0evoiceChannelId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\x03R\x06userId\x12\x1d\n" +
+	"\x10voice_channel_id\x18\x02 \x01(\x03R\x0evoiceChannelId\x12\x1b\n" +
+	"\tsender_id\x18\x03 \x01(\x03R\bsenderId\x12\x1f\n" +
+	"\vreceiver_id\x18\x04 \x01(\x03R\n" +
+	"receiverId\x12\x1d\n" +
 	"\n" +
-	"event_type\x18\x04 \x01(\x05R\teventType\x12\x16\n" +
-	"\x06params\x18\x05 \x01(\tR\x06params\"\x8d\x01\n" +
+	"event_type\x18\x05 \x01(\x05R\teventType\x12\x16\n" +
+	"\x06params\x18\x06 \x01(\tR\x06params\"\x8d\x01\n" +
 	"\x10ScreenShareEvent\x12\x17\n" +
 	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\x12(\n" +
 	"\x10voice_channel_id\x18\x02 \x01(\x03R\x0evoiceChannelId\x12\x17\n" +

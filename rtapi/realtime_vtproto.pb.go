@@ -2263,15 +2263,20 @@ func (m *VoiceInteractiveEvent) MarshalToSizedBufferVT(dAtA []byte) (int, error)
 		copy(dAtA[i:], m.Params)
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.Params)))
 		i--
-		dAtA[i] = 0x2a
+		dAtA[i] = 0x32
 	}
 	if m.EventType != 0 {
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.EventType))
 		i--
+		dAtA[i] = 0x28
+	}
+	if m.ReceiverId != 0 {
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.ReceiverId))
+		i--
 		dAtA[i] = 0x20
 	}
-	if m.UserId != 0 {
-		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.UserId))
+	if m.SenderId != 0 {
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.SenderId))
 		i--
 		dAtA[i] = 0x18
 	}
@@ -11036,8 +11041,11 @@ func (m *VoiceInteractiveEvent) SizeVT() (n int) {
 	if m.VoiceChannelId != 0 {
 		n += 1 + protohelpers.SizeOfVarint(uint64(m.VoiceChannelId))
 	}
-	if m.UserId != 0 {
-		n += 1 + protohelpers.SizeOfVarint(uint64(m.UserId))
+	if m.SenderId != 0 {
+		n += 1 + protohelpers.SizeOfVarint(uint64(m.SenderId))
+	}
+	if m.ReceiverId != 0 {
+		n += 1 + protohelpers.SizeOfVarint(uint64(m.ReceiverId))
 	}
 	if m.EventType != 0 {
 		n += 1 + protohelpers.SizeOfVarint(uint64(m.EventType))
@@ -18500,9 +18508,9 @@ func (m *VoiceInteractiveEvent) UnmarshalVT(dAtA []byte) error {
 			}
 		case 3:
 			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UserId", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field SenderId", wireType)
 			}
-			m.UserId = 0
+			m.SenderId = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return protohelpers.ErrIntOverflow
@@ -18512,12 +18520,31 @@ func (m *VoiceInteractiveEvent) UnmarshalVT(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.UserId |= int64(b&0x7F) << shift
+				m.SenderId |= int64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
 		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ReceiverId", wireType)
+			}
+			m.ReceiverId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ReceiverId |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 5:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field EventType", wireType)
 			}
@@ -18536,7 +18563,7 @@ func (m *VoiceInteractiveEvent) UnmarshalVT(dAtA []byte) error {
 					break
 				}
 			}
-		case 5:
+		case 6:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Params", wireType)
 			}
