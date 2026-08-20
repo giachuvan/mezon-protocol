@@ -3349,6 +3349,7 @@ message Message2InboxRequest {
   repeated MessageAttachment attachments = 7;
   repeated MessageReaction reactions = 8;
   repeated MessageRef references = 9;
+  int64 topic_id = 10;
 }
 
 // Send an email with password to the server. Used with authenticate/link/unlink.
@@ -3473,6 +3474,7 @@ message DirectFcmProto {
   bool has_more_attachment = 17;
   repeated bool is_mention_role = 18 [packed = true];
   int64 message_id = 19;
+  int64 topic_id = 20;
 }
 
 message MessageMentionList {

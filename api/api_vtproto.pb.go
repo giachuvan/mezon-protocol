@@ -19227,6 +19227,11 @@ func (m *Message2InboxRequest) MarshalToSizedBufferVT(dAtA []byte) (int, error) 
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
+	if m.TopicId != 0 {
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.TopicId))
+		i--
+		dAtA[i] = 0x50
+	}
 	if len(m.References) > 0 {
 		for iNdEx := len(m.References) - 1; iNdEx >= 0; iNdEx-- {
 			size, err := m.References[iNdEx].MarshalToSizedBufferVT(dAtA[:i])
@@ -20186,6 +20191,13 @@ func (m *DirectFcmProto) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 	if m.unknownFields != nil {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
+	}
+	if m.TopicId != 0 {
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.TopicId))
+		i--
+		dAtA[i] = 0x1
+		i--
+		dAtA[i] = 0xa0
 	}
 	if m.MessageId != 0 {
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(m.MessageId))
@@ -30710,6 +30722,9 @@ func (m *Message2InboxRequest) SizeVT() (n int) {
 			n += 1 + l + protohelpers.SizeOfVarint(uint64(l))
 		}
 	}
+	if m.TopicId != 0 {
+		n += 1 + protohelpers.SizeOfVarint(uint64(m.TopicId))
+	}
 	n += len(m.unknownFields)
 	return n
 }
@@ -31124,6 +31139,9 @@ func (m *DirectFcmProto) SizeVT() (n int) {
 	}
 	if m.MessageId != 0 {
 		n += 2 + protohelpers.SizeOfVarint(uint64(m.MessageId))
+	}
+	if m.TopicId != 0 {
+		n += 2 + protohelpers.SizeOfVarint(uint64(m.TopicId))
 	}
 	n += len(m.unknownFields)
 	return n
@@ -82572,6 +82590,25 @@ func (m *Message2InboxRequest) UnmarshalVT(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
+		case 10:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TopicId", wireType)
+			}
+			m.TopicId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.TopicId |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
 		default:
 			iNdEx = preIndex
 			skippy, err := protohelpers.Skip(dAtA[iNdEx:])
@@ -85468,6 +85505,25 @@ func (m *DirectFcmProto) UnmarshalVT(dAtA []byte) error {
 				b := dAtA[iNdEx]
 				iNdEx++
 				m.MessageId |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 20:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TopicId", wireType)
+			}
+			m.TopicId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.TopicId |= int64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
