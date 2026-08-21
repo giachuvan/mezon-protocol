@@ -3804,4 +3804,14 @@ message ListUserOnlineResponse {
   int32 total_count = 2;
 }
 
+message SearchCtrlKRequest {
+  string text = 1;
+  int32 type = 2;
+}
+
+message SearchCtrlKResponse {
+  repeated User users = 1;
+  repeated ChannelDescription channels = 2;
+}
+
 message NoParams {}
