@@ -26525,6 +26525,578 @@ func (x *SearchCtrlKResponse) GetChannels() []*ChannelDescription {
 	return nil
 }
 
+type Memo struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	CreatorId        int64                  `protobuf:"varint,1,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
+	Id               int64                  `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	ImageUrl         string                 `protobuf:"bytes,3,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
+	Caption          string                 `protobuf:"bytes,4,opt,name=caption,proto3" json:"caption,omitempty"`
+	CreateTimeSecond int64                  `protobuf:"varint,5,opt,name=create_time_second,json=createTimeSecond,proto3" json:"create_time_second,omitempty"`
+	ExpireAtSecond   int64                  `protobuf:"varint,6,opt,name=expire_at_second,json=expireAtSecond,proto3" json:"expire_at_second,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *Memo) Reset() {
+	*x = Memo{}
+	mi := &file_api_proto_msgTypes[360]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Memo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Memo) ProtoMessage() {}
+
+func (x *Memo) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[360]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Memo.ProtoReflect.Descriptor instead.
+func (*Memo) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{360}
+}
+
+func (x *Memo) GetCreatorId() int64 {
+	if x != nil {
+		return x.CreatorId
+	}
+	return 0
+}
+
+func (x *Memo) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Memo) GetImageUrl() string {
+	if x != nil {
+		return x.ImageUrl
+	}
+	return ""
+}
+
+func (x *Memo) GetCaption() string {
+	if x != nil {
+		return x.Caption
+	}
+	return ""
+}
+
+func (x *Memo) GetCreateTimeSecond() int64 {
+	if x != nil {
+		return x.CreateTimeSecond
+	}
+	return 0
+}
+
+func (x *Memo) GetExpireAtSecond() int64 {
+	if x != nil {
+		return x.ExpireAtSecond
+	}
+	return 0
+}
+
+type CreateMemoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ImageUrl      string                 `protobuf:"bytes,1,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
+	Caption       string                 `protobuf:"bytes,2,opt,name=caption,proto3" json:"caption,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMemoRequest) Reset() {
+	*x = CreateMemoRequest{}
+	mi := &file_api_proto_msgTypes[361]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMemoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMemoRequest) ProtoMessage() {}
+
+func (x *CreateMemoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[361]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMemoRequest.ProtoReflect.Descriptor instead.
+func (*CreateMemoRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{361}
+}
+
+func (x *CreateMemoRequest) GetImageUrl() string {
+	if x != nil {
+		return x.ImageUrl
+	}
+	return ""
+}
+
+func (x *CreateMemoRequest) GetCaption() string {
+	if x != nil {
+		return x.Caption
+	}
+	return ""
+}
+
+type CreateMemoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Memo          *Memo                  `protobuf:"bytes,1,opt,name=memo,proto3" json:"memo,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMemoResponse) Reset() {
+	*x = CreateMemoResponse{}
+	mi := &file_api_proto_msgTypes[362]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMemoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMemoResponse) ProtoMessage() {}
+
+func (x *CreateMemoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[362]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMemoResponse.ProtoReflect.Descriptor instead.
+func (*CreateMemoResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{362}
+}
+
+func (x *CreateMemoResponse) GetMemo() *Memo {
+	if x != nil {
+		return x.Memo
+	}
+	return nil
+}
+
+type ListMemosRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMemosRequest) Reset() {
+	*x = ListMemosRequest{}
+	mi := &file_api_proto_msgTypes[363]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMemosRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMemosRequest) ProtoMessage() {}
+
+func (x *ListMemosRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[363]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMemosRequest.ProtoReflect.Descriptor instead.
+func (*ListMemosRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{363}
+}
+
+type ViewerMemo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Memo          *Memo                  `protobuf:"bytes,1,opt,name=memo,proto3" json:"memo,omitempty"`
+	SeenByMe      bool                   `protobuf:"varint,2,opt,name=seen_by_me,json=seenByMe,proto3" json:"seen_by_me,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ViewerMemo) Reset() {
+	*x = ViewerMemo{}
+	mi := &file_api_proto_msgTypes[364]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ViewerMemo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ViewerMemo) ProtoMessage() {}
+
+func (x *ViewerMemo) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[364]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ViewerMemo.ProtoReflect.Descriptor instead.
+func (*ViewerMemo) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{364}
+}
+
+func (x *ViewerMemo) GetMemo() *Memo {
+	if x != nil {
+		return x.Memo
+	}
+	return nil
+}
+
+func (x *ViewerMemo) GetSeenByMe() bool {
+	if x != nil {
+		return x.SeenByMe
+	}
+	return false
+}
+
+type MemoCreatorGroup struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CreatorId     int64                  `protobuf:"varint,1,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
+	Memos         []*ViewerMemo          `protobuf:"bytes,2,rep,name=memos,proto3" json:"memos,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MemoCreatorGroup) Reset() {
+	*x = MemoCreatorGroup{}
+	mi := &file_api_proto_msgTypes[365]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MemoCreatorGroup) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MemoCreatorGroup) ProtoMessage() {}
+
+func (x *MemoCreatorGroup) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[365]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MemoCreatorGroup.ProtoReflect.Descriptor instead.
+func (*MemoCreatorGroup) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{365}
+}
+
+func (x *MemoCreatorGroup) GetCreatorId() int64 {
+	if x != nil {
+		return x.CreatorId
+	}
+	return 0
+}
+
+func (x *MemoCreatorGroup) GetMemos() []*ViewerMemo {
+	if x != nil {
+		return x.Memos
+	}
+	return nil
+}
+
+type ListMemosResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Groups        []*MemoCreatorGroup    `protobuf:"bytes,1,rep,name=groups,proto3" json:"groups,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMemosResponse) Reset() {
+	*x = ListMemosResponse{}
+	mi := &file_api_proto_msgTypes[366]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMemosResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMemosResponse) ProtoMessage() {}
+
+func (x *ListMemosResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[366]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMemosResponse.ProtoReflect.Descriptor instead.
+func (*ListMemosResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{366}
+}
+
+func (x *ListMemosResponse) GetGroups() []*MemoCreatorGroup {
+	if x != nil {
+		return x.Groups
+	}
+	return nil
+}
+
+type DeleteMemoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CreatorId     int64                  `protobuf:"varint,1,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
+	MemoId        int64                  `protobuf:"varint,2,opt,name=memo_id,json=memoId,proto3" json:"memo_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteMemoRequest) Reset() {
+	*x = DeleteMemoRequest{}
+	mi := &file_api_proto_msgTypes[367]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteMemoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMemoRequest) ProtoMessage() {}
+
+func (x *DeleteMemoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[367]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteMemoRequest.ProtoReflect.Descriptor instead.
+func (*DeleteMemoRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{367}
+}
+
+func (x *DeleteMemoRequest) GetCreatorId() int64 {
+	if x != nil {
+		return x.CreatorId
+	}
+	return 0
+}
+
+func (x *DeleteMemoRequest) GetMemoId() int64 {
+	if x != nil {
+		return x.MemoId
+	}
+	return 0
+}
+
+type MarkMemoSeenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CreatorId     int64                  `protobuf:"varint,1,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
+	MemoId        int64                  `protobuf:"varint,2,opt,name=memo_id,json=memoId,proto3" json:"memo_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkMemoSeenRequest) Reset() {
+	*x = MarkMemoSeenRequest{}
+	mi := &file_api_proto_msgTypes[368]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkMemoSeenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkMemoSeenRequest) ProtoMessage() {}
+
+func (x *MarkMemoSeenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[368]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkMemoSeenRequest.ProtoReflect.Descriptor instead.
+func (*MarkMemoSeenRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{368}
+}
+
+func (x *MarkMemoSeenRequest) GetCreatorId() int64 {
+	if x != nil {
+		return x.CreatorId
+	}
+	return 0
+}
+
+func (x *MarkMemoSeenRequest) GetMemoId() int64 {
+	if x != nil {
+		return x.MemoId
+	}
+	return 0
+}
+
+type ReplyMemoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CreatorId     int64                  `protobuf:"varint,1,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
+	MemoId        int64                  `protobuf:"varint,2,opt,name=memo_id,json=memoId,proto3" json:"memo_id,omitempty"`
+	Text          string                 `protobuf:"bytes,3,opt,name=text,proto3" json:"text,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplyMemoRequest) Reset() {
+	*x = ReplyMemoRequest{}
+	mi := &file_api_proto_msgTypes[369]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplyMemoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplyMemoRequest) ProtoMessage() {}
+
+func (x *ReplyMemoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[369]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplyMemoRequest.ProtoReflect.Descriptor instead.
+func (*ReplyMemoRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{369}
+}
+
+func (x *ReplyMemoRequest) GetCreatorId() int64 {
+	if x != nil {
+		return x.CreatorId
+	}
+	return 0
+}
+
+func (x *ReplyMemoRequest) GetMemoId() int64 {
+	if x != nil {
+		return x.MemoId
+	}
+	return 0
+}
+
+func (x *ReplyMemoRequest) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+type ReplyMemoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DmChannelId   int64                  `protobuf:"varint,1,opt,name=dm_channel_id,json=dmChannelId,proto3" json:"dm_channel_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplyMemoResponse) Reset() {
+	*x = ReplyMemoResponse{}
+	mi := &file_api_proto_msgTypes[370]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplyMemoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplyMemoResponse) ProtoMessage() {}
+
+func (x *ReplyMemoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[370]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplyMemoResponse.ProtoReflect.Descriptor instead.
+func (*ReplyMemoResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{370}
+}
+
+func (x *ReplyMemoResponse) GetDmChannelId() int64 {
+	if x != nil {
+		return x.DmChannelId
+	}
+	return 0
+}
+
 type NoParams struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -26533,7 +27105,7 @@ type NoParams struct {
 
 func (x *NoParams) Reset() {
 	*x = NoParams{}
-	mi := &file_api_proto_msgTypes[360]
+	mi := &file_api_proto_msgTypes[371]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -26545,7 +27117,7 @@ func (x *NoParams) String() string {
 func (*NoParams) ProtoMessage() {}
 
 func (x *NoParams) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[360]
+	mi := &file_api_proto_msgTypes[371]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -26558,7 +27130,7 @@ func (x *NoParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NoParams.ProtoReflect.Descriptor instead.
 func (*NoParams) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{360}
+	return file_api_proto_rawDescGZIP(), []int{371}
 }
 
 // A single user-role pair.
@@ -26590,7 +27162,7 @@ type ChannelUserList_ChannelUser struct {
 
 func (x *ChannelUserList_ChannelUser) Reset() {
 	*x = ChannelUserList_ChannelUser{}
-	mi := &file_api_proto_msgTypes[364]
+	mi := &file_api_proto_msgTypes[375]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -26602,7 +27174,7 @@ func (x *ChannelUserList_ChannelUser) String() string {
 func (*ChannelUserList_ChannelUser) ProtoMessage() {}
 
 func (x *ChannelUserList_ChannelUser) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[364]
+	mi := &file_api_proto_msgTypes[375]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -26706,7 +27278,7 @@ type ClanUserList_ClanUser struct {
 
 func (x *ClanUserList_ClanUser) Reset() {
 	*x = ClanUserList_ClanUser{}
-	mi := &file_api_proto_msgTypes[365]
+	mi := &file_api_proto_msgTypes[376]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -26718,7 +27290,7 @@ func (x *ClanUserList_ClanUser) String() string {
 func (*ClanUserList_ClanUser) ProtoMessage() {}
 
 func (x *ClanUserList_ClanUser) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[365]
+	mi := &file_api_proto_msgTypes[376]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -26779,7 +27351,7 @@ type UpdateClanOrderRequest_ClanOrder struct {
 
 func (x *UpdateClanOrderRequest_ClanOrder) Reset() {
 	*x = UpdateClanOrderRequest_ClanOrder{}
-	mi := &file_api_proto_msgTypes[366]
+	mi := &file_api_proto_msgTypes[377]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -26791,7 +27363,7 @@ func (x *UpdateClanOrderRequest_ClanOrder) String() string {
 func (*UpdateClanOrderRequest_ClanOrder) ProtoMessage() {}
 
 func (x *UpdateClanOrderRequest_ClanOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[366]
+	mi := &file_api_proto_msgTypes[377]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -26844,7 +27416,7 @@ type RoleUserList_RoleUser struct {
 
 func (x *RoleUserList_RoleUser) Reset() {
 	*x = RoleUserList_RoleUser{}
-	mi := &file_api_proto_msgTypes[367]
+	mi := &file_api_proto_msgTypes[378]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -26856,7 +27428,7 @@ func (x *RoleUserList_RoleUser) String() string {
 func (*RoleUserList_RoleUser) ProtoMessage() {}
 
 func (x *RoleUserList_RoleUser) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[367]
+	mi := &file_api_proto_msgTypes[378]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -26931,7 +27503,7 @@ type GetPubKeysResponse_UserPubKey struct {
 
 func (x *GetPubKeysResponse_UserPubKey) Reset() {
 	*x = GetPubKeysResponse_UserPubKey{}
-	mi := &file_api_proto_msgTypes[369]
+	mi := &file_api_proto_msgTypes[380]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -26943,7 +27515,7 @@ func (x *GetPubKeysResponse_UserPubKey) String() string {
 func (*GetPubKeysResponse_UserPubKey) ProtoMessage() {}
 
 func (x *GetPubKeysResponse_UserPubKey) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[369]
+	mi := &file_api_proto_msgTypes[380]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -29256,7 +29828,47 @@ const file_api_proto_rawDesc = "" +
 	"\x04type\x18\x02 \x01(\x05R\x04type\"w\n" +
 	"\x13SearchCtrlKResponse\x12%\n" +
 	"\x05users\x18\x01 \x03(\v2\x0f.mezon.api.UserR\x05users\x129\n" +
-	"\bchannels\x18\x02 \x03(\v2\x1d.mezon.api.ChannelDescriptionR\bchannels\"\n" +
+	"\bchannels\x18\x02 \x03(\v2\x1d.mezon.api.ChannelDescriptionR\bchannels\"\xc4\x01\n" +
+	"\x04Memo\x12\x1d\n" +
+	"\n" +
+	"creator_id\x18\x01 \x01(\x03R\tcreatorId\x12\x0e\n" +
+	"\x02id\x18\x02 \x01(\x03R\x02id\x12\x1b\n" +
+	"\timage_url\x18\x03 \x01(\tR\bimageUrl\x12\x18\n" +
+	"\acaption\x18\x04 \x01(\tR\acaption\x12,\n" +
+	"\x12create_time_second\x18\x05 \x01(\x03R\x10createTimeSecond\x12(\n" +
+	"\x10expire_at_second\x18\x06 \x01(\x03R\x0eexpireAtSecond\"J\n" +
+	"\x11CreateMemoRequest\x12\x1b\n" +
+	"\timage_url\x18\x01 \x01(\tR\bimageUrl\x12\x18\n" +
+	"\acaption\x18\x02 \x01(\tR\acaption\"9\n" +
+	"\x12CreateMemoResponse\x12#\n" +
+	"\x04memo\x18\x01 \x01(\v2\x0f.mezon.api.MemoR\x04memo\"\x12\n" +
+	"\x10ListMemosRequest\"O\n" +
+	"\n" +
+	"ViewerMemo\x12#\n" +
+	"\x04memo\x18\x01 \x01(\v2\x0f.mezon.api.MemoR\x04memo\x12\x1c\n" +
+	"\n" +
+	"seen_by_me\x18\x02 \x01(\bR\bseenByMe\"^\n" +
+	"\x10MemoCreatorGroup\x12\x1d\n" +
+	"\n" +
+	"creator_id\x18\x01 \x01(\x03R\tcreatorId\x12+\n" +
+	"\x05memos\x18\x02 \x03(\v2\x15.mezon.api.ViewerMemoR\x05memos\"H\n" +
+	"\x11ListMemosResponse\x123\n" +
+	"\x06groups\x18\x01 \x03(\v2\x1b.mezon.api.MemoCreatorGroupR\x06groups\"K\n" +
+	"\x11DeleteMemoRequest\x12\x1d\n" +
+	"\n" +
+	"creator_id\x18\x01 \x01(\x03R\tcreatorId\x12\x17\n" +
+	"\amemo_id\x18\x02 \x01(\x03R\x06memoId\"M\n" +
+	"\x13MarkMemoSeenRequest\x12\x1d\n" +
+	"\n" +
+	"creator_id\x18\x01 \x01(\x03R\tcreatorId\x12\x17\n" +
+	"\amemo_id\x18\x02 \x01(\x03R\x06memoId\"^\n" +
+	"\x10ReplyMemoRequest\x12\x1d\n" +
+	"\n" +
+	"creator_id\x18\x01 \x01(\x03R\tcreatorId\x12\x17\n" +
+	"\amemo_id\x18\x02 \x01(\x03R\x06memoId\x12\x12\n" +
+	"\x04text\x18\x03 \x01(\tR\x04text\"7\n" +
+	"\x11ReplyMemoResponse\x12\"\n" +
+	"\rdm_channel_id\x18\x01 \x01(\x03R\vdmChannelId\"\n" +
 	"\n" +
 	"\bNoParams*o\n" +
 	"\rStoreProvider\x12\x13\n" +
@@ -29298,7 +29910,7 @@ func file_api_proto_rawDescGZIP() []byte {
 }
 
 var file_api_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
-var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 373)
+var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 384)
 var file_api_proto_goTypes = []any{
 	(StoreProvider)(0),                             // 0: mezon.api.StoreProvider
 	(StoreEnvironment)(0),                          // 1: mezon.api.StoreEnvironment
@@ -29669,68 +30281,79 @@ var file_api_proto_goTypes = []any{
 	(*ListUserOnlineResponse)(nil),                 // 366: mezon.api.ListUserOnlineResponse
 	(*SearchCtrlKRequest)(nil),                     // 367: mezon.api.SearchCtrlKRequest
 	(*SearchCtrlKResponse)(nil),                    // 368: mezon.api.SearchCtrlKResponse
-	(*NoParams)(nil),                               // 369: mezon.api.NoParams
-	nil,                                            // 370: mezon.api.AccountRefresh.VarsEntry
-	nil,                                            // 371: mezon.api.SessionRefreshRequest.VarsEntry
-	nil,                                            // 372: mezon.api.Event.PropertiesEntry
-	(*ChannelUserList_ChannelUser)(nil),            // 373: mezon.api.ChannelUserList.ChannelUser
-	(*ClanUserList_ClanUser)(nil),                  // 374: mezon.api.ClanUserList.ClanUser
-	(*UpdateClanOrderRequest_ClanOrder)(nil),       // 375: mezon.api.UpdateClanOrderRequest.ClanOrder
-	(*RoleUserList_RoleUser)(nil),                  // 376: mezon.api.RoleUserList.RoleUser
-	nil,                                            // 377: mezon.api.RegistrationEmailRequest.VarsEntry
-	(*GetPubKeysResponse_UserPubKey)(nil),          // 378: mezon.api.GetPubKeysResponse.UserPubKey
-	nil,                                            // 379: mezon.api.AccountEmail.VarsEntry
-	nil,                                            // 380: mezon.api.AccountMezon.VarsEntry
-	nil,                                            // 381: mezon.api.NotificationBatchRequest.NotificationsEntry
-	(*wrapperspb.StringValue)(nil),                 // 382: google.protobuf.StringValue
-	(*wrapperspb.BoolValue)(nil),                   // 383: google.protobuf.BoolValue
+	(*Memo)(nil),                                   // 369: mezon.api.Memo
+	(*CreateMemoRequest)(nil),                      // 370: mezon.api.CreateMemoRequest
+	(*CreateMemoResponse)(nil),                     // 371: mezon.api.CreateMemoResponse
+	(*ListMemosRequest)(nil),                       // 372: mezon.api.ListMemosRequest
+	(*ViewerMemo)(nil),                             // 373: mezon.api.ViewerMemo
+	(*MemoCreatorGroup)(nil),                       // 374: mezon.api.MemoCreatorGroup
+	(*ListMemosResponse)(nil),                      // 375: mezon.api.ListMemosResponse
+	(*DeleteMemoRequest)(nil),                      // 376: mezon.api.DeleteMemoRequest
+	(*MarkMemoSeenRequest)(nil),                    // 377: mezon.api.MarkMemoSeenRequest
+	(*ReplyMemoRequest)(nil),                       // 378: mezon.api.ReplyMemoRequest
+	(*ReplyMemoResponse)(nil),                      // 379: mezon.api.ReplyMemoResponse
+	(*NoParams)(nil),                               // 380: mezon.api.NoParams
+	nil,                                            // 381: mezon.api.AccountRefresh.VarsEntry
+	nil,                                            // 382: mezon.api.SessionRefreshRequest.VarsEntry
+	nil,                                            // 383: mezon.api.Event.PropertiesEntry
+	(*ChannelUserList_ChannelUser)(nil),            // 384: mezon.api.ChannelUserList.ChannelUser
+	(*ClanUserList_ClanUser)(nil),                  // 385: mezon.api.ClanUserList.ClanUser
+	(*UpdateClanOrderRequest_ClanOrder)(nil),       // 386: mezon.api.UpdateClanOrderRequest.ClanOrder
+	(*RoleUserList_RoleUser)(nil),                  // 387: mezon.api.RoleUserList.RoleUser
+	nil,                                            // 388: mezon.api.RegistrationEmailRequest.VarsEntry
+	(*GetPubKeysResponse_UserPubKey)(nil),          // 389: mezon.api.GetPubKeysResponse.UserPubKey
+	nil,                                            // 390: mezon.api.AccountEmail.VarsEntry
+	nil,                                            // 391: mezon.api.AccountMezon.VarsEntry
+	nil,                                            // 392: mezon.api.NotificationBatchRequest.NotificationsEntry
+	(*wrapperspb.StringValue)(nil),                 // 393: google.protobuf.StringValue
+	(*wrapperspb.BoolValue)(nil),                   // 394: google.protobuf.BoolValue
 }
 var file_api_proto_depIdxs = []int32{
 	68,  // 0: mezon.api.Account.user:type_name -> mezon.api.User
-	370, // 1: mezon.api.AccountRefresh.vars:type_name -> mezon.api.AccountRefresh.VarsEntry
-	371, // 2: mezon.api.SessionRefreshRequest.vars:type_name -> mezon.api.SessionRefreshRequest.VarsEntry
+	381, // 1: mezon.api.AccountRefresh.vars:type_name -> mezon.api.AccountRefresh.VarsEntry
+	382, // 2: mezon.api.SessionRefreshRequest.vars:type_name -> mezon.api.SessionRefreshRequest.VarsEntry
 	100, // 3: mezon.api.NotificationInfo.channel:type_name -> mezon.api.ChannelDescription
 	20,  // 4: mezon.api.ChannelMessageList.messages:type_name -> mezon.api.ChannelMessage
 	99,  // 5: mezon.api.ChannelMessageList.last_seen_message:type_name -> mezon.api.ChannelMessageHeader
 	99,  // 6: mezon.api.ChannelMessageList.last_sent_message:type_name -> mezon.api.ChannelMessageHeader
-	372, // 7: mezon.api.Event.properties:type_name -> mezon.api.Event.PropertiesEntry
+	383, // 7: mezon.api.Event.properties:type_name -> mezon.api.Event.PropertiesEntry
 	68,  // 8: mezon.api.Friend.user:type_name -> mezon.api.User
 	33,  // 9: mezon.api.FriendList.friends:type_name -> mezon.api.Friend
-	373, // 10: mezon.api.ChannelUserList.channel_users:type_name -> mezon.api.ChannelUserList.ChannelUser
+	384, // 10: mezon.api.ChannelUserList.channel_users:type_name -> mezon.api.ChannelUserList.ChannelUser
 	37,  // 11: mezon.api.VoiceChannelUserList.voice_channel_users:type_name -> mezon.api.VoiceChannelUser
 	39,  // 12: mezon.api.ChannelAttachmentList.attachments:type_name -> mezon.api.ChannelAttachment
-	374, // 13: mezon.api.ClanUserList.clan_users:type_name -> mezon.api.ClanUserList.ClanUser
+	385, // 13: mezon.api.ClanUserList.clan_users:type_name -> mezon.api.ClanUserList.ClanUser
 	52,  // 14: mezon.api.ClanUserStatusList.clan_user_statuses:type_name -> mezon.api.ClanUserStatusEntry
 	100, // 15: mezon.api.Notification.channel:type_name -> mezon.api.ChannelDescription
 	57,  // 16: mezon.api.EmojiRecentList.emoji_recents:type_name -> mezon.api.EmojiRecent
 	56,  // 17: mezon.api.NotificationList.notifications:type_name -> mezon.api.Notification
-	382, // 18: mezon.api.UpdateAccountRequest.display_name:type_name -> google.protobuf.StringValue
-	382, // 19: mezon.api.UpdateAccountRequest.avatar_url:type_name -> google.protobuf.StringValue
-	382, // 20: mezon.api.UpdateAccountRequest.lang_tag:type_name -> google.protobuf.StringValue
-	382, // 21: mezon.api.UpdateAccountRequest.location:type_name -> google.protobuf.StringValue
-	382, // 22: mezon.api.UpdateAccountRequest.timezone:type_name -> google.protobuf.StringValue
-	382, // 23: mezon.api.UpdateAccountRequest.about_me:type_name -> google.protobuf.StringValue
-	382, // 24: mezon.api.UpdateAccountRequest.logo:type_name -> google.protobuf.StringValue
-	382, // 25: mezon.api.UpdateAccountRequest.splash_screen:type_name -> google.protobuf.StringValue
-	382, // 26: mezon.api.UpdateAccountRequest.email:type_name -> google.protobuf.StringValue
-	382, // 27: mezon.api.UpdateGroupRequest.name:type_name -> google.protobuf.StringValue
-	382, // 28: mezon.api.UpdateGroupRequest.description:type_name -> google.protobuf.StringValue
-	382, // 29: mezon.api.UpdateGroupRequest.lang_tag:type_name -> google.protobuf.StringValue
-	382, // 30: mezon.api.UpdateGroupRequest.avatar_url:type_name -> google.protobuf.StringValue
+	393, // 18: mezon.api.UpdateAccountRequest.display_name:type_name -> google.protobuf.StringValue
+	393, // 19: mezon.api.UpdateAccountRequest.avatar_url:type_name -> google.protobuf.StringValue
+	393, // 20: mezon.api.UpdateAccountRequest.lang_tag:type_name -> google.protobuf.StringValue
+	393, // 21: mezon.api.UpdateAccountRequest.location:type_name -> google.protobuf.StringValue
+	393, // 22: mezon.api.UpdateAccountRequest.timezone:type_name -> google.protobuf.StringValue
+	393, // 23: mezon.api.UpdateAccountRequest.about_me:type_name -> google.protobuf.StringValue
+	393, // 24: mezon.api.UpdateAccountRequest.logo:type_name -> google.protobuf.StringValue
+	393, // 25: mezon.api.UpdateAccountRequest.splash_screen:type_name -> google.protobuf.StringValue
+	393, // 26: mezon.api.UpdateAccountRequest.email:type_name -> google.protobuf.StringValue
+	393, // 27: mezon.api.UpdateGroupRequest.name:type_name -> google.protobuf.StringValue
+	393, // 28: mezon.api.UpdateGroupRequest.description:type_name -> google.protobuf.StringValue
+	393, // 29: mezon.api.UpdateGroupRequest.lang_tag:type_name -> google.protobuf.StringValue
+	393, // 30: mezon.api.UpdateGroupRequest.avatar_url:type_name -> google.protobuf.StringValue
 	68,  // 31: mezon.api.Users.users:type_name -> mezon.api.User
-	382, // 32: mezon.api.UpdateClanDescRequest.logo:type_name -> google.protobuf.StringValue
-	382, // 33: mezon.api.UpdateClanDescRequest.banner:type_name -> google.protobuf.StringValue
-	383, // 34: mezon.api.UpdateClanDescRequest.is_onboarding:type_name -> google.protobuf.BoolValue
-	382, // 35: mezon.api.UpdateClanDescRequest.onboarding_banner:type_name -> google.protobuf.StringValue
-	383, // 36: mezon.api.UpdateClanDescRequest.is_community:type_name -> google.protobuf.BoolValue
-	382, // 37: mezon.api.UpdateClanDescRequest.community_banner:type_name -> google.protobuf.StringValue
-	382, // 38: mezon.api.UpdateClanDescRequest.description:type_name -> google.protobuf.StringValue
-	382, // 39: mezon.api.UpdateClanDescRequest.about:type_name -> google.protobuf.StringValue
-	382, // 40: mezon.api.UpdateClanDescRequest.short_url:type_name -> google.protobuf.StringValue
+	393, // 32: mezon.api.UpdateClanDescRequest.logo:type_name -> google.protobuf.StringValue
+	393, // 33: mezon.api.UpdateClanDescRequest.banner:type_name -> google.protobuf.StringValue
+	394, // 34: mezon.api.UpdateClanDescRequest.is_onboarding:type_name -> google.protobuf.BoolValue
+	393, // 35: mezon.api.UpdateClanDescRequest.onboarding_banner:type_name -> google.protobuf.StringValue
+	394, // 36: mezon.api.UpdateClanDescRequest.is_community:type_name -> google.protobuf.BoolValue
+	393, // 37: mezon.api.UpdateClanDescRequest.community_banner:type_name -> google.protobuf.StringValue
+	393, // 38: mezon.api.UpdateClanDescRequest.description:type_name -> google.protobuf.StringValue
+	393, // 39: mezon.api.UpdateClanDescRequest.about:type_name -> google.protobuf.StringValue
+	393, // 40: mezon.api.UpdateClanDescRequest.short_url:type_name -> google.protobuf.StringValue
 	73,  // 41: mezon.api.ClanDescList.clandesc:type_name -> mezon.api.ClanDesc
-	382, // 42: mezon.api.UpdateClanProfileRequest.nick_name:type_name -> google.protobuf.StringValue
-	382, // 43: mezon.api.UpdateClanProfileRequest.avatar:type_name -> google.protobuf.StringValue
-	375, // 44: mezon.api.UpdateClanOrderRequest.clans_order:type_name -> mezon.api.UpdateClanOrderRequest.ClanOrder
+	393, // 42: mezon.api.UpdateClanProfileRequest.nick_name:type_name -> google.protobuf.StringValue
+	393, // 43: mezon.api.UpdateClanProfileRequest.avatar:type_name -> google.protobuf.StringValue
+	386, // 44: mezon.api.UpdateClanOrderRequest.clans_order:type_name -> mezon.api.UpdateClanOrderRequest.ClanOrder
 	94,  // 45: mezon.api.UpdateCategoryOrderRequest.categories:type_name -> mezon.api.CategoryOrderUpdate
 	93,  // 46: mezon.api.UpdateRoleOrderRequest.roles:type_name -> mezon.api.RoleOrderUpdate
 	90,  // 47: mezon.api.CategoryDescList.categorydesc:type_name -> mezon.api.CategoryDesc
@@ -29738,8 +30361,8 @@ var file_api_proto_depIdxs = []int32{
 	99,  // 49: mezon.api.ChannelDescription.last_seen_message:type_name -> mezon.api.ChannelMessageHeader
 	100, // 50: mezon.api.ChannelDescList.channeldesc:type_name -> mezon.api.ChannelDescription
 	100, // 51: mezon.api.ChannelDescListNoPool.channeldesc:type_name -> mezon.api.ChannelDescription
-	382, // 52: mezon.api.UpdateChannelDescRequest.channel_label:type_name -> google.protobuf.StringValue
-	382, // 53: mezon.api.UpdateChannelDescRequest.channel_avatar:type_name -> google.protobuf.StringValue
+	393, // 52: mezon.api.UpdateChannelDescRequest.channel_label:type_name -> google.protobuf.StringValue
+	393, // 53: mezon.api.UpdateChannelDescRequest.channel_avatar:type_name -> google.protobuf.StringValue
 	115, // 54: mezon.api.BannedUserList.banned_users:type_name -> mezon.api.BannedUser
 	100, // 55: mezon.api.ListArchivedChannelDescsResponse.channeldesc:type_name -> mezon.api.ChannelDescription
 	148, // 56: mezon.api.Role.role_user_list:type_name -> mezon.api.RoleUserList
@@ -29751,12 +30374,12 @@ var file_api_proto_depIdxs = []int32{
 	122, // 62: mezon.api.RoleList.roles:type_name -> mezon.api.Role
 	123, // 63: mezon.api.EventList.events:type_name -> mezon.api.EventManagement
 	124, // 64: mezon.api.PermissionList.permissions:type_name -> mezon.api.Permission
-	376, // 65: mezon.api.RoleUserList.role_users:type_name -> mezon.api.RoleUserList.RoleUser
+	387, // 65: mezon.api.RoleUserList.role_users:type_name -> mezon.api.RoleUserList.RoleUser
 	301, // 66: mezon.api.CreateEventRequest.meet_room:type_name -> mezon.api.GenerateMezonMeetResponse
-	382, // 67: mezon.api.UpdateRoleRequest.title:type_name -> google.protobuf.StringValue
-	382, // 68: mezon.api.UpdateRoleRequest.color:type_name -> google.protobuf.StringValue
-	382, // 69: mezon.api.UpdateRoleRequest.role_icon:type_name -> google.protobuf.StringValue
-	382, // 70: mezon.api.UpdateRoleRequest.description:type_name -> google.protobuf.StringValue
+	393, // 67: mezon.api.UpdateRoleRequest.title:type_name -> google.protobuf.StringValue
+	393, // 68: mezon.api.UpdateRoleRequest.color:type_name -> google.protobuf.StringValue
+	393, // 69: mezon.api.UpdateRoleRequest.role_icon:type_name -> google.protobuf.StringValue
+	393, // 70: mezon.api.UpdateRoleRequest.description:type_name -> google.protobuf.StringValue
 	158, // 71: mezon.api.UpdateRoleChannelRequest.permission_update:type_name -> mezon.api.PermissionUpdate
 	161, // 72: mezon.api.UploadBatchAttachmentRequest.upload_files:type_name -> mezon.api.UploadAttachmentRequest
 	163, // 73: mezon.api.UploadAttachmentBatch.uploaded_files:type_name -> mezon.api.UploadAttachment
@@ -29764,15 +30387,15 @@ var file_api_proto_depIdxs = []int32{
 	169, // 75: mezon.api.SearchMessageRequest.filters:type_name -> mezon.api.FilterParam
 	168, // 76: mezon.api.SearchMessageRequest.sorts:type_name -> mezon.api.SortParam
 	170, // 77: mezon.api.SearchMessageResponse.messages:type_name -> mezon.api.SearchMessageDocument
-	377, // 78: mezon.api.RegistrationEmailRequest.vars:type_name -> mezon.api.RegistrationEmailRequest.VarsEntry
+	388, // 78: mezon.api.RegistrationEmailRequest.vars:type_name -> mezon.api.RegistrationEmailRequest.VarsEntry
 	173, // 79: mezon.api.EmojiListedResponse.emoji_list:type_name -> mezon.api.ClanEmoji
 	176, // 80: mezon.api.StickerListedResponse.stickers:type_name -> mezon.api.ClanSticker
 	183, // 81: mezon.api.WebhookListResponse.webhooks:type_name -> mezon.api.Webhook
 	200, // 82: mezon.api.AppList.apps:type_name -> mezon.api.App
-	382, // 83: mezon.api.UpdateAppRequest.appname:type_name -> google.protobuf.StringValue
-	382, // 84: mezon.api.UpdateAppRequest.metadata:type_name -> google.protobuf.StringValue
-	382, // 85: mezon.api.UpdateAppRequest.applogo:type_name -> google.protobuf.StringValue
-	382, // 86: mezon.api.UpdateAppRequest.token:type_name -> google.protobuf.StringValue
+	393, // 83: mezon.api.UpdateAppRequest.appname:type_name -> google.protobuf.StringValue
+	393, // 84: mezon.api.UpdateAppRequest.metadata:type_name -> google.protobuf.StringValue
+	393, // 85: mezon.api.UpdateAppRequest.applogo:type_name -> google.protobuf.StringValue
+	393, // 86: mezon.api.UpdateAppRequest.token:type_name -> google.protobuf.StringValue
 	210, // 87: mezon.api.SystemMessagesList.system_messages_list:type_name -> mezon.api.SystemMessage
 	218, // 88: mezon.api.StreamingChannelUserList.streaming_channel_users:type_name -> mezon.api.StreamingChannelUser
 	225, // 89: mezon.api.ListChannelAppsResponse.channel_apps:type_name -> mezon.api.ChannelAppResponse
@@ -29785,7 +30408,7 @@ var file_api_proto_depIdxs = []int32{
 	242, // 96: mezon.api.ChannelCanvasListResponse.channel_canvases:type_name -> mezon.api.ChannelCanvasItem
 	251, // 97: mezon.api.ListUserActivity.activities:type_name -> mezon.api.UserActivity
 	257, // 98: mezon.api.PushPubKeyRequest.PK:type_name -> mezon.api.PubKey
-	378, // 99: mezon.api.GetPubKeysResponse.pub_keys:type_name -> mezon.api.GetPubKeysResponse.UserPubKey
+	389, // 99: mezon.api.GetPubKeysResponse.pub_keys:type_name -> mezon.api.GetPubKeysResponse.UserPubKey
 	263, // 100: mezon.api.ListAuditLog.logs:type_name -> mezon.api.AuditLog
 	271, // 101: mezon.api.ListOnboardingResponse.list_onboarding:type_name -> mezon.api.OnboardingItem
 	272, // 102: mezon.api.OnboardingItem.answers:type_name -> mezon.api.OnboardingAnswer
@@ -29803,8 +30426,8 @@ var file_api_proto_depIdxs = []int32{
 	24,  // 114: mezon.api.Message2InboxRequest.attachments:type_name -> mezon.api.MessageAttachment
 	23,  // 115: mezon.api.Message2InboxRequest.reactions:type_name -> mezon.api.MessageReaction
 	25,  // 116: mezon.api.Message2InboxRequest.references:type_name -> mezon.api.MessageRef
-	379, // 117: mezon.api.AccountEmail.vars:type_name -> mezon.api.AccountEmail.VarsEntry
-	380, // 118: mezon.api.AccountMezon.vars:type_name -> mezon.api.AccountMezon.VarsEntry
+	390, // 117: mezon.api.AccountEmail.vars:type_name -> mezon.api.AccountEmail.VarsEntry
+	391, // 118: mezon.api.AccountMezon.vars:type_name -> mezon.api.AccountMezon.VarsEntry
 	313, // 119: mezon.api.QuickMenuAccessList.list_menus:type_name -> mezon.api.QuickMenuAccess
 	317, // 120: mezon.api.ForSaleItemList.for_sale_items:type_name -> mezon.api.ForSaleItem
 	325, // 121: mezon.api.LogedDeviceList.devices:type_name -> mezon.api.LogedDevice
@@ -29826,7 +30449,7 @@ var file_api_proto_depIdxs = []int32{
 	342, // 137: mezon.api.UpdateChannelTimelineRequest.attachments:type_name -> mezon.api.ChannelTimelineAttachment
 	344, // 138: mezon.api.UpdateChannelTimelineResponse.event:type_name -> mezon.api.ChannelTimeline
 	344, // 139: mezon.api.ChannelTimelineDetailResponse.event:type_name -> mezon.api.ChannelTimeline
-	381, // 140: mezon.api.NotificationBatchRequest.notifications:type_name -> mezon.api.NotificationBatchRequest.NotificationsEntry
+	392, // 140: mezon.api.NotificationBatchRequest.notifications:type_name -> mezon.api.NotificationBatchRequest.NotificationsEntry
 	4,   // 141: mezon.api.CreatePollRequest.type:type_name -> mezon.api.PollType
 	362, // 142: mezon.api.CreatePollResponse.answers:type_name -> mezon.api.PollAnswer
 	4,   // 143: mezon.api.CreatePollResponse.type:type_name -> mezon.api.PollType
@@ -29836,14 +30459,18 @@ var file_api_proto_depIdxs = []int32{
 	68,  // 147: mezon.api.ListUserOnlineResponse.users:type_name -> mezon.api.User
 	68,  // 148: mezon.api.SearchCtrlKResponse.users:type_name -> mezon.api.User
 	100, // 149: mezon.api.SearchCtrlKResponse.channels:type_name -> mezon.api.ChannelDescription
-	68,  // 150: mezon.api.ClanUserList.ClanUser.user:type_name -> mezon.api.User
-	257, // 151: mezon.api.GetPubKeysResponse.UserPubKey.PK:type_name -> mezon.api.PubKey
-	59,  // 152: mezon.api.NotificationBatchRequest.NotificationsEntry.value:type_name -> mezon.api.NotificationList
-	153, // [153:153] is the sub-list for method output_type
-	153, // [153:153] is the sub-list for method input_type
-	153, // [153:153] is the sub-list for extension type_name
-	153, // [153:153] is the sub-list for extension extendee
-	0,   // [0:153] is the sub-list for field type_name
+	369, // 150: mezon.api.CreateMemoResponse.memo:type_name -> mezon.api.Memo
+	369, // 151: mezon.api.ViewerMemo.memo:type_name -> mezon.api.Memo
+	373, // 152: mezon.api.MemoCreatorGroup.memos:type_name -> mezon.api.ViewerMemo
+	374, // 153: mezon.api.ListMemosResponse.groups:type_name -> mezon.api.MemoCreatorGroup
+	68,  // 154: mezon.api.ClanUserList.ClanUser.user:type_name -> mezon.api.User
+	257, // 155: mezon.api.GetPubKeysResponse.UserPubKey.PK:type_name -> mezon.api.PubKey
+	59,  // 156: mezon.api.NotificationBatchRequest.NotificationsEntry.value:type_name -> mezon.api.NotificationList
+	157, // [157:157] is the sub-list for method output_type
+	157, // [157:157] is the sub-list for method input_type
+	157, // [157:157] is the sub-list for extension type_name
+	157, // [157:157] is the sub-list for extension extendee
+	0,   // [0:157] is the sub-list for field type_name
 }
 
 func init() { file_api_proto_init() }
@@ -29857,7 +30484,7 @@ func file_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_proto_rawDesc), len(file_api_proto_rawDesc)),
 			NumEnums:      9,
-			NumMessages:   373,
+			NumMessages:   384,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
