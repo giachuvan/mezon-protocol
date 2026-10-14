@@ -229,6 +229,8 @@ message Envelope {
     ScreenShareEvent screen_share_event = 99;
     // VoiceInteractiveEvent
     VoiceInteractiveEvent voice_interactive_event = 100;
+    // Aggregated audience count of a streaming channel
+    StreamingViewerCountEvent streaming_viewer_count_event = 101;
   }
 }
 
@@ -878,6 +880,16 @@ message StreamingEndedEvent {
   int64 clan_id = 1;
   // channel id
   int64 channel_id = 2;
+}
+
+// Audience size of a streaming channel, sent when it changes. Publishers are not counted.
+message StreamingViewerCountEvent {
+  // clan id
+  int64 clan_id = 1;
+  // streaming channel id
+  int64 channel_id = 2;
+  // number of distinct users watching as audience
+  int32 viewer_count = 3;
 }
 
 message ChannelCreatedEvent {

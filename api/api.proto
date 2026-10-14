@@ -3861,4 +3861,24 @@ message GenerateCDNSignatureResponse {
     string signature = 1;
 }
 
+// Where a client publishes to or watches a stream channel served by mezon-streaming-server.
+message GetStreamPlaybackRequest {
+    int64 channel_id = 1;
+    // Publish (WHIP) instead of watching.
+    bool publish = 2;
+}
+
+message GetStreamPlaybackResponse {
+    // Bearer token for whip_url and whep_url.
+    string token = 1;
+    // Publish: the origin's WHIP endpoint.
+    string whip_url = 2;
+    // Watch over WebRTC; empty when no edge has room, and the client then plays hls_url.
+    string whep_url = 3;
+    // Watch over LL-HLS, with the credential in its query. Also the fallback when WebRTC cannot connect.
+    string hls_url = 4;
+    // Unix seconds; the token is refused for new sessions after this.
+    int64 expires_at = 5;
+}
+
 message NoParams {}
