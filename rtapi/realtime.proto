@@ -1324,6 +1324,24 @@ message FCMTokens {
   string platform = 3;
 }
 
+message StreamingNode {
+  string id = 1;
+  string role = 2;
+  string url = 3;
+  bool hls = 4;
+  int64 sessions = 5;
+  int64 max_sessions = 6;
+  int64 ts = 7;
+  int64 boot = 8;
+  int64 seen_ms = 9;
+  bool down = 10;
+}
+
+message StreamingLive {
+  string node = 1;
+  int64 ts = 2;
+}
+
 message CheckNameExistedEvent {
   // name
   string name = 1;
