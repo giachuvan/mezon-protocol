@@ -3881,4 +3881,9 @@ message GetStreamPlaybackResponse {
     int64 expires_at = 5;
 }
 
+message LinkCDNFileRequest {
+    string src = 1;
+    string dst = 2;
+}
+
 message NoParams {}
