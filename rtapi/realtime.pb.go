@@ -2096,6 +2096,7 @@ type ApiRequestEvent struct {
 	ApiIndex      int32                  `protobuf:"varint,1,opt,name=api_index,json=apiIndex,proto3" json:"api_index,omitempty"`
 	ApiName       string                 `protobuf:"bytes,2,opt,name=api_name,json=apiName,proto3" json:"api_name,omitempty"`
 	Body          []byte                 `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	Region        int32                  `protobuf:"varint,4,opt,name=region,proto3" json:"region,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2149,6 +2150,13 @@ func (x *ApiRequestEvent) GetBody() []byte {
 		return x.Body
 	}
 	return nil
+}
+
+func (x *ApiRequestEvent) GetRegion() int32 {
+	if x != nil {
+		return x.Region
+	}
+	return 0
 }
 
 type FollowEvent struct {
@@ -10636,11 +10644,12 @@ const file_realtime_proto_rawDesc = "" +
 	"message_id\x18\x01 \x01(\x03R\tmessageId\x12\x10\n" +
 	"\x03rpl\x18\x02 \x01(\x05R\x03rpl\x12\x12\n" +
 	"\x04lsnt\x18\x03 \x01(\x03R\x04lsnt\x12\x13\n" +
-	"\x05tp_id\x18\x04 \x01(\tR\x04tpId\"]\n" +
+	"\x05tp_id\x18\x04 \x01(\tR\x04tpId\"u\n" +
 	"\x0fApiRequestEvent\x12\x1b\n" +
 	"\tapi_index\x18\x01 \x01(\x05R\bapiIndex\x12\x19\n" +
 	"\bapi_name\x18\x02 \x01(\tR\aapiName\x12\x12\n" +
-	"\x04body\x18\x03 \x01(\fR\x04body\"\r\n" +
+	"\x04body\x18\x03 \x01(\fR\x04body\x12\x16\n" +
+	"\x06region\x18\x04 \x01(\x05R\x06region\"\r\n" +
 	"\vFollowEvent\"\xb4\x01\n" +
 	"\x0fBannedUserEvent\x12\x19\n" +
 	"\buser_ids\x18\x01 \x03(\x03R\auserIds\x12\x16\n" +
