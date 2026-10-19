@@ -3225,6 +3225,7 @@ message SdTopic {
   uint32 update_time_seconds = 8;
   string content = 9;
   ChannelMessageHeader last_sent_message = 10;
+  int32 unread_count = 11;
 }
 
 message SdTopicRequest {

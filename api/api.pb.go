@@ -21243,6 +21243,7 @@ type SdTopic struct {
 	UpdateTimeSeconds uint32                 `protobuf:"varint,8,opt,name=update_time_seconds,json=updateTimeSeconds,proto3" json:"update_time_seconds,omitempty"`
 	Content           string                 `protobuf:"bytes,9,opt,name=content,proto3" json:"content,omitempty"`
 	LastSentMessage   *ChannelMessageHeader  `protobuf:"bytes,10,opt,name=last_sent_message,json=lastSentMessage,proto3" json:"last_sent_message,omitempty"`
+	UnreadCount       int32                  `protobuf:"varint,11,opt,name=unread_count,json=unreadCount,proto3" json:"unread_count,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -21345,6 +21346,13 @@ func (x *SdTopic) GetLastSentMessage() *ChannelMessageHeader {
 		return x.LastSentMessage
 	}
 	return nil
+}
+
+func (x *SdTopic) GetUnreadCount() int32 {
+	if x != nil {
+		return x.UnreadCount
+	}
+	return 0
 }
 
 type SdTopicRequest struct {
@@ -29319,7 +29327,7 @@ const file_api_proto_rawDesc = "" +
 	"\x04page\x18\x03 \x01(\x05R\x04page\"_\n" +
 	"\x1bUpdateOnboardingStepRequest\x12\x17\n" +
 	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\x12'\n" +
-	"\x0fonboarding_step\x18\x02 \x01(\x05R\x0eonboardingStep\"\xee\x02\n" +
+	"\x0fonboarding_step\x18\x02 \x01(\x05R\x0eonboardingStep\"\x91\x03\n" +
 	"\aSdTopic\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n" +
 	"\n" +
@@ -29334,7 +29342,8 @@ const file_api_proto_rawDesc = "" +
 	"\x13update_time_seconds\x18\b \x01(\rR\x11updateTimeSeconds\x12\x18\n" +
 	"\acontent\x18\t \x01(\tR\acontent\x12K\n" +
 	"\x11last_sent_message\x18\n" +
-	" \x01(\v2\x1f.mezon.api.ChannelMessageHeaderR\x0flastSentMessage\"g\n" +
+	" \x01(\v2\x1f.mezon.api.ChannelMessageHeaderR\x0flastSentMessage\x12!\n" +
+	"\funread_count\x18\v \x01(\x05R\vunreadCount\"g\n" +
 	"\x0eSdTopicRequest\x12\x1d\n" +
 	"\n" +
 	"message_id\x18\x01 \x01(\x03R\tmessageId\x12\x17\n" +
