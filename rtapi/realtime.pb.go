@@ -5713,8 +5713,10 @@ type StreamingJoinedEvent struct {
 	StreamingChannelLabel string `protobuf:"bytes,6,opt,name=streaming_channel_label,json=streamingChannelLabel,proto3" json:"streaming_channel_label,omitempty"`
 	// streaming channel id
 	StreamingChannelId int64 `protobuf:"varint,7,opt,name=streaming_channel_id,json=streamingChannelId,proto3" json:"streaming_channel_id,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	// true for the stream's publisher; listed viewers (at most 100 per channel) are false
+	IsPublisher   bool `protobuf:"varint,8,opt,name=is_publisher,json=isPublisher,proto3" json:"is_publisher,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *StreamingJoinedEvent) Reset() {
@@ -5794,6 +5796,13 @@ func (x *StreamingJoinedEvent) GetStreamingChannelId() int64 {
 		return x.StreamingChannelId
 	}
 	return 0
+}
+
+func (x *StreamingJoinedEvent) GetIsPublisher() bool {
+	if x != nil {
+		return x.IsPublisher
+	}
+	return false
 }
 
 // Streaming start event
@@ -10964,7 +10973,7 @@ const file_realtime_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
 	"\aclan_id\x18\x02 \x01(\x03R\x06clanId\x120\n" +
 	"\x14streaming_channel_id\x18\x03 \x01(\tR\x12streamingChannelId\x12*\n" +
-	"\x11streaming_user_id\x18\x04 \x01(\tR\x0fstreamingUserId\"\x81\x02\n" +
+	"\x11streaming_user_id\x18\x04 \x01(\tR\x0fstreamingUserId\"\xa4\x02\n" +
 	"\x14StreamingJoinedEvent\x12\x17\n" +
 	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\x12\x1b\n" +
 	"\tclan_name\x18\x02 \x01(\tR\bclanName\x12\x0e\n" +
@@ -10972,7 +10981,8 @@ const file_realtime_proto_rawDesc = "" +
 	"\vparticipant\x18\x04 \x01(\tR\vparticipant\x12\x17\n" +
 	"\auser_id\x18\x05 \x01(\x03R\x06userId\x126\n" +
 	"\x17streaming_channel_label\x18\x06 \x01(\tR\x15streamingChannelLabel\x120\n" +
-	"\x14streaming_channel_id\x18\a \x01(\x03R\x12streamingChannelId\"\x97\x01\n" +
+	"\x14streaming_channel_id\x18\a \x01(\x03R\x12streamingChannelId\x12!\n" +
+	"\fis_publisher\x18\b \x01(\bR\visPublisher\"\x97\x01\n" +
 	"\x15StreamingStartedEvent\x12\x17\n" +
 	"\aclan_id\x18\x01 \x01(\x03R\x06clanId\x12\x1d\n" +
 	"\n" +
