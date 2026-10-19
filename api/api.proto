@@ -2517,6 +2517,8 @@ message StreamingChannelUser {
   int64 channel_id = 3;
   // participant
   string participant = 4;
+  // true for the stream's publisher; listed viewers (at most 100 per channel) are false
+  bool is_publisher = 5;
 }
 
 // A list of users belonging to a channel, along with their role.

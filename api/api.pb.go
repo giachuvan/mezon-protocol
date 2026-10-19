@@ -16229,7 +16229,9 @@ type StreamingChannelUser struct {
 	// channel id
 	ChannelId int64 `protobuf:"varint,3,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
 	// participant
-	Participant   string `protobuf:"bytes,4,opt,name=participant,proto3" json:"participant,omitempty"`
+	Participant string `protobuf:"bytes,4,opt,name=participant,proto3" json:"participant,omitempty"`
+	// true for the stream's publisher; listed viewers (at most 100 per channel) are false
+	IsPublisher   bool `protobuf:"varint,5,opt,name=is_publisher,json=isPublisher,proto3" json:"is_publisher,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -16290,6 +16292,13 @@ func (x *StreamingChannelUser) GetParticipant() string {
 		return x.Participant
 	}
 	return ""
+}
+
+func (x *StreamingChannelUser) GetIsPublisher() bool {
+	if x != nil {
+		return x.IsPublisher
+	}
+	return false
 }
 
 // A list of users belonging to a channel, along with their role.
@@ -28909,13 +28918,14 @@ const file_api_proto_rawDesc = "" +
 	"\x05token\x18\b \x01(\tR\x05token\"B\n" +
 	"\x1aStreamHttpCallbackResponse\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x10\n" +
-	"\x03msg\x18\x02 \x01(\tR\x03msg\"\x80\x01\n" +
+	"\x03msg\x18\x02 \x01(\tR\x03msg\"\xa3\x01\n" +
 	"\x14StreamingChannelUser\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x03R\x06userId\x12\x1d\n" +
 	"\n" +
 	"channel_id\x18\x03 \x01(\x03R\tchannelId\x12 \n" +
-	"\vparticipant\x18\x04 \x01(\tR\vparticipant\"s\n" +
+	"\vparticipant\x18\x04 \x01(\tR\vparticipant\x12!\n" +
+	"\fis_publisher\x18\x05 \x01(\bR\visPublisher\"s\n" +
 	"\x18StreamingChannelUserList\x12W\n" +
 	"\x17streaming_channel_users\x18\x01 \x03(\v2\x1f.mezon.api.StreamingChannelUserR\x15streamingChannelUsers\"Y\n" +
 	"\x1fRegisterStreamingChannelRequest\x12\x17\n" +

@@ -861,6 +861,8 @@ message StreamingJoinedEvent {
   string streaming_channel_label = 6;
   // streaming channel id
   int64 streaming_channel_id = 7;
+  // true for the stream's publisher; listed viewers (at most 100 per channel) are false
+  bool is_publisher = 8;
 }
 
 // Streaming start event
